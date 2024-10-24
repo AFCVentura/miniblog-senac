@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 
 const CreateArticlePage = () => {
+  const apiURL = import.meta.env.VITE_REACT_APP_API_BASE_URL;
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [name, setName] = useState("");
@@ -20,7 +21,7 @@ const CreateArticlePage = () => {
       setError("");
 
       try {
-        const res = await axios.post("http://localhost:4000/api/articles", {
+        const res = await axios.post(`${apiURL}/api/articles`, {
           name,
           title,
           content,
